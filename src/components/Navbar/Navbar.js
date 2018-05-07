@@ -9,11 +9,12 @@ class Navbar extends Component {
       <div className="Navbar">
         <div className="logo">
             <h1>WatchIt</h1>
-            <img src="http://via.placeholder/100x100"></img>
         </div>
         <div className="search">
+            <form onSubmit={this.props.onSubmit}>
             <input type="text" name="search" placeholder="Search"/>
-            <button type="submit" onClick={this.props.onSubmit}>Search</button>
+            <button type="submit" >Search</button>
+            </form>
             <ul className="drop-menu">
               <li>Genre
                 <li>Action</li>
