@@ -11,30 +11,11 @@ class Navbar extends Component {
             <h1>WatchIt</h1>
         </div>
         <div className="search">
-            <form onSubmit={this.props.onSubmit}>
+            <form onSubmit={this.props.onChange} onChange={this.props.onChange}>
             <input type="text" name="search" placeholder="Search"/>
-            <button type="submit" >Search</button>
-            </form>
-            <ul className="drop-menu">
-              <li>Genre
-                <li>Action</li>
-                <li>Sci-fi</li>
-                <li>Thriller</li>
-                <li>Comedy</li>
-                <li>Romantic</li>
-                <li>Documentary</li>
-              </li>
-            </ul>
-
-            <ul className="drop-menu">
-              <li>Sort by
-                <li>IMDB rating</li>
-                <li>Date added</li>
-                <li>Popularity</li>
-                </li>
-            </ul>
-            
+            </form>         
         </div>
+        <button type="submit" onClick={this.props.popular}>Popular</button>
       </div>
     )
   }
