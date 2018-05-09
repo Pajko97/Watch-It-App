@@ -2,26 +2,39 @@ import React, { Component } from 'react';
 import Navbar from './components/Navbar/Navbar.js'
 import './App.css';
 import axios from 'axios'
-import Movie from './components/Reccomendations/Reccomended.js';
 
 
 class App extends Component {
     state = {
       movies: [],
-      popular: []
+      popular: [],
+      votes: [],
+      search: '',
+      api: '1ca88eaa9f43c3fe6943dba43a383cd7'
+
      }
 
-
-  onPopular = (e) => {
-    const apis = '1ca88eaa9f43c3fe6943dba43a383cd7'
+                      // Best average rated movies
+  onRated = (e) => {
+    this.setState({search:'discover/movie?&sort_by=vote_average.desc' })
     e.preventDefault();
-    axios.get(`http://api.themoviedb.org/3/discover/movie?&sort_by=vote_average.desc&api_key=${apis}&page=1`)
+    axios.get(`http://api.themoviedb.org/3/${this.state.search}&api_key=${this.state.api}&page=1`)
     .then((result) => this.setState({
       movies: [],
       popular: result.data.results
     }))
   }
-
+                      // Movies with most votes
+  onVotes = (e) => {
+    this.setState({search:'discover/movie?&sort_by=vote_average.desc' })
+    e.preventDefault();
+    axios.get(`http://api.themoviedb.org/3/${this.state.search}&api_key=${this.state.api}&page=1`)
+    .then((result) => this.setState({
+      movies: [],
+      popular: result.data.results
+    }))
+  }
+              // Search method that handle changes
   onChange = (e) => {
     e.preventDefault();
     const val = e.target.value;
@@ -29,17 +42,12 @@ class App extends Component {
       if (val === "") {
         this.setState({movies: [], popular:[]});
 
-    }
-  
-    else {
- // const search = e.target.elements.search.value;
-      const api = '1ca88eaa9f43c3fe6943dba43a383cd7'
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${api}&query=${val}`)
+    } else {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.state.api}&query=${val}`)
       .then((result) => this.setState({
         movies:result.data.results,
         value: val,
-        sortVote:'',
-        sortRating: ''
+        popular: []
       })
     )
     }
@@ -56,10 +64,11 @@ class App extends Component {
  
         <Navbar 
           onSubmit={this.onSubmit}
-          popular={this.onPopular}
+          popular={this.onRated}
           onChange={this.onChange}
           
         />
+         
          {
            movies.map( movie => 
             <div className="movie-box">
@@ -76,7 +85,7 @@ class App extends Component {
          {
            populars.map( (popular) => 
             <div className="movie-box">
-            <img src={"https://image.tmdb.org/t/p/w300" + popular.poster_path} alt="dog"/>
+            <img src={"https://image.tmdb.org/t/p/w300" + popular.poster_path} alt="http://via.placeholder.com/300x200"/>
               <div className="description">
                 <h2>{popular.original_title}</h2>
                 <p>{popular.overview}</p>
@@ -85,6 +94,7 @@ class App extends Component {
               </div>
             </div>
          )}
+         
       </div>
     );
   }

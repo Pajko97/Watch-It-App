@@ -13,7 +13,8 @@ class Navbar extends Component {
         <div className="search">
             <form onSubmit={this.props.onChange} onChange={this.props.onChange}>
             <input type="text" name="search" placeholder="Search"/>
-            </form>         
+            
+            </form>      
         </div>
         <button type="submit" onClick={this.props.popular}>Popular</button>
       </div>
