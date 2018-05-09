@@ -21,22 +21,26 @@ class Popular extends Component {
       movies: [],
       popular: result.data.results
     }))
+  
    }
+
+
 
   render() {
     let populars = this.state.popular;
     return (
-      <div>
+      <div className="popular">
       <button type="submit" onClick={this.onRated}>Popular</button>
-        {
+        { 
            populars.map( (popular) => 
             <div className="movie-box">
-            <img src={"https://image.tmdb.org/t/p/w300" + popular.poster_path} alt="dog"/>
+            <img className="movie-box-image" src={"https://image.tmdb.org/t/p/w300" + popular.poster_path} alt="dog"/>
               <div className="description">
-                <h2>{popular.original_title}</h2>
-                <p>{popular.overview}</p>
-                <i className="votes">{popular.vote_average}</i>
-                <p>Release date: {popular.release_date}</p>
+              <i className="votes">{popular.vote_average}</i>
+              <p>Release date: {popular.release_date}</p>
+                <h3>{popular.original_title}</h3>
+                <p className="overview">{popular.overview}</p>
+               
               </div>
             </div>
          )}

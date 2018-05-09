@@ -15,18 +15,6 @@ class App extends Component {
 
      }
 
-                      // Best average rated movies
-  
-                      // Movies with most votes
-  onVotes = (e) => {
-    this.setState({search:'discover/movie?&sort_by=vote_average.desc' })
-    e.preventDefault();
-    axios.get(`http://api.themoviedb.org/3/${this.state.search}&api_key=${this.state.api}&page=1`)
-    .then((result) => this.setState({
-      movies: [],
-      popular: result.data.results
-    }))
-  }
               // Search method that handle changes
   onChange = (e) => {
     e.preventDefault();
@@ -47,15 +35,7 @@ class App extends Component {
   });
   }
 
-  /* onRated = () => {
-    this.setState({search:'discover/movie?&sort_by=vote_average.desc' })
-    axios.get(`http://api.themoviedb.org/3/${this.state.search}&api_key=${this.state.api}&page=1`)
-    .then((result) => this.setState({
-      movies: [],
-      popular: result.data.results
-    }))
-   } */
-  
+
 
   render() {
     let movies = this.state.movies;
@@ -65,27 +45,23 @@ class App extends Component {
         <Navbar 
           onChange={this.onChange}
         />
-        
-        {
+                   <div className="search">
+
+        {  
            movies.map( movie => 
-            <div className="movie-box">
+            <div className="movie-box-search">
             <img src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} alt="dog"/>
               <div className="description">
                 <h2>{movie.original_title}</h2>
-                <p>{movie.overview}</p>
+                <p className="overview-search">{movie.overview}</p>
                 <i className="votes">{movie.vote_average}</i>
                 <p>Release date: {movie.release_date}</p>
               </div>
             </div>
+            
          )}
-        
+        </div>
          <Popular
-         onRated={this.onRated}
-         movies={this.state.movies}
-         popular={this.state.popular}
-         votes={this.state.votes}
-         search={this.state.search}
-         api={this.state.api}
          />
          
       </div>
