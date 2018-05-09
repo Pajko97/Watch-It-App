@@ -1,22 +1,33 @@
 import React, { Component } from 'react'
-import CSS from '/Users/axeof/Desktop/WatchIt 1.0/WatchIt/src/App.css'
 import axios from 'axios'
-import onPopular from './onPopular'
+
 
 class Popular extends Component {
 
   state = {
     movies: [],
-    popular: []
+    popular: [],
+    search: '',
+    votes: [],
+    api: '1ca88eaa9f43c3fe6943dba43a383cd7'
+
    }
 
-
+   onRated = (e) => {
+    this.setState({search:'discover/movie?&sort_by=vote_average.desc' })
+    e.preventDefault();
+    axios.get(`http://api.themoviedb.org/3/${this.state.search}&api_key=${this.state.api}&page=1`)
+    .then((result) => this.setState({
+      movies: [],
+      popular: result.data.results
+    }))
+   }
 
   render() {
     let populars = this.state.popular;
-
     return (
       <div>
+      <button type="submit" onClick={this.onRated}>Popular</button>
         {
            populars.map( (popular) => 
             <div className="movie-box">

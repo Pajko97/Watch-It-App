@@ -6,7 +6,7 @@ class Navbar extends Component {
   
   render() {
     return (
-      <div className="Navbar">
+      <div className="Navbar" onLoad={this.props.onRated}>
         <div className="logo">
             <h1>WatchIt</h1>
         </div>

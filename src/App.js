@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from './components/Navbar/Navbar.js'
 import './App.css';
 import axios from 'axios'
+import Popular from './components/Popular/Popular'
 
 
 class App extends Component {
@@ -15,15 +16,7 @@ class App extends Component {
      }
 
                       // Best average rated movies
-  onRated = (e) => {
-    this.setState({search:'discover/movie?&sort_by=vote_average.desc' })
-    e.preventDefault();
-    axios.get(`http://api.themoviedb.org/3/${this.state.search}&api_key=${this.state.api}&page=1`)
-    .then((result) => this.setState({
-      movies: [],
-      popular: result.data.results
-    }))
-  }
+  
                       // Movies with most votes
   onVotes = (e) => {
     this.setState({search:'discover/movie?&sort_by=vote_average.desc' })
@@ -53,23 +46,27 @@ class App extends Component {
     }
   });
   }
+
+  /* onRated = () => {
+    this.setState({search:'discover/movie?&sort_by=vote_average.desc' })
+    axios.get(`http://api.themoviedb.org/3/${this.state.search}&api_key=${this.state.api}&page=1`)
+    .then((result) => this.setState({
+      movies: [],
+      popular: result.data.results
+    }))
+   } */
   
 
   render() {
     let movies = this.state.movies;
-    let populars = this.state.popular;
 
     return (
       <div className="App">
- 
         <Navbar 
-          onSubmit={this.onSubmit}
-          popular={this.onRated}
           onChange={this.onChange}
-          
         />
-         
-         {
+        
+        {
            movies.map( movie => 
             <div className="movie-box">
             <img src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} alt="dog"/>
@@ -82,18 +79,14 @@ class App extends Component {
             </div>
          )}
         
-         {
-           populars.map( (popular) => 
-            <div className="movie-box">
-            <img src={"https://image.tmdb.org/t/p/w300" + popular.poster_path} alt="http://via.placeholder.com/300x200"/>
-              <div className="description">
-                <h2>{popular.original_title}</h2>
-                <p>{popular.overview}</p>
-                <i className="votes">{popular.vote_average}</i>
-                <p>Release date: {popular.release_date}</p>
-              </div>
-            </div>
-         )}
+         <Popular
+         onRated={this.onRated}
+         movies={this.state.movies}
+         popular={this.state.popular}
+         votes={this.state.votes}
+         search={this.state.search}
+         api={this.state.api}
+         />
          
       </div>
     );
