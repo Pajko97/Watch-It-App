@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar.js'
 import './App.css';
 import axios from 'axios'
 import Popular from './components/Popular/Popular'
+import Soon from './components/Soon/Soon'
 
 
 class App extends Component {
@@ -63,7 +64,8 @@ class App extends Component {
         </div>
          <Popular
          />
-         
+         <br/>
+         <Soon/>
       </div>
     );
   }
