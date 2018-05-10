@@ -13,16 +13,17 @@ class Popular extends Component {
 
    }
 
-   onRated = (e) => {
-    this.setState({search:'discover/movie?&sort_by=vote_average.desc' })
-    e.preventDefault();
-    axios.get(`http://api.themoviedb.org/3/${this.state.search}&api_key=${this.state.api}&page=1`)
+   onRated = () => {
+    
+    axios.get(`http://api.themoviedb.org/3/discover/movie?&sort_by=vote_average.desc&api_key=${this.state.api}&page=1`)
     .then((result) => this.setState({
       movies: [],
       popular: result.data.results
     }))
   
    }
+
+  
   
 
 
@@ -30,7 +31,7 @@ class Popular extends Component {
   render() {
     let populars = this.state.popular;
     return (
-      <div className="popular">
+      <div className="popular" onLoad={this.onRated}>
       <button type="submit" onClick={this.onRated}>Popular</button>
         { 
            populars.map( (popular) => 

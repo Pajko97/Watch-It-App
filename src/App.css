@@ -40,10 +40,16 @@
 .popular {
   display:flex;
   height:600px;
-  width:100vw;
+  width:98.9vw;
   overflow: scroll;
+  background-color:orange;
+  margin:0;
+  
 }
-
+.popular::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
 .description {
   margin:2.2%;
   padding:2.2%;
@@ -53,6 +59,7 @@
 }
 .movie-box-image {
   width:500px;
+
 }
 .movie-box {
    display:flex;
@@ -71,11 +78,11 @@
   word-wrap:break-word;
 }
 .votes {
-  border: 1px solid orange;
+  border: 1px solid #273e63;
   border-radius:50%;
   padding:10px;
-  background-color:orange;
-  color: white;
+  background-color: #273e63;
+  color: var(--color4);
 }
                      /*Search*/
 .movie-box-search{
@@ -96,6 +103,19 @@
   display:flex;
   flex-wrap: wrap;
 }
+                            /* Soon */
+.soon {
+  display:flex;
+  height:600px;
+  width:98.9vw;
+  overflow: scroll;
+  background-color:red;
+}
+.soon::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+
 @keyframes fadeIn {
   from{opacity:0;}
   to{opacity:1}

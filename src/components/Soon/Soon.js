@@ -14,9 +14,8 @@ import axios from 'axios'
        }
 
     onSoon = (e) => {
-        this.setState({search:'discover/movie?&primary_release_date.gte=2018-05-10&primary_release_date.lte=2018-05-31' })
         e.preventDefault();
-        axios.get(`http://api.themoviedb.org/3/${this.state.search}&api_key=${this.state.api}&page=1`)
+        axios.get(`http://api.themoviedb.org/3/discover/movie?&primary_release_date.gte=2018-05-11&primary_release_date.lte=2018-05-31&api_key=${this.state.api}&page=1`)
       //  .then((result) => console.log(result))
         .then((result) => this.setState({
         movies: [],
@@ -28,7 +27,7 @@ import axios from 'axios'
   render() {
       let soon = this.state.inTheatres;
     return (
-      <div className="popular">
+      <div className="soon">
         <button type="submit" onClick={this.onSoon}>  Soon </button>
         { 
            soon.map( (soon) => 

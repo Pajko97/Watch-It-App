@@ -46,7 +46,7 @@ class App extends Component {
         <Navbar 
           onChange={this.onChange}
         />
-                   <div className="search">
+        <div className="search">
 
         {  
            movies.map( movie => 
@@ -64,7 +64,6 @@ class App extends Component {
         </div>
          <Popular
          />
-         <br/>
          <Soon/>
       </div>
     );
