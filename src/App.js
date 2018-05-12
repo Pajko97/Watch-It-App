@@ -29,7 +29,8 @@ class App extends Component {
       .then((result) => this.setState({
         movies:result.data.results,
         value: val,
-        popular: []
+        popular: undefined,
+        soon: undefined
       })
     )
     }

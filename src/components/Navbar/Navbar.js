@@ -11,13 +11,11 @@ class Navbar extends Component {
         <div className="logo">
             <h1>WatchIt</h1>
         </div>
-        <div className="search">
+        <div className="search-input">
             <form onSubmit={this.props.onChange} onChange={this.props.onChange}>
             <input type="text" name="search" placeholder="Search"/>
-            
             </form>      
         </div>
-        <button type="submit" onClick={this.props.popular}>Popular</button>
       </div>
     )
   }

@@ -13,10 +13,19 @@ import axios from 'axios'
     
        }
 
-    onSoon = (e) => {
-        e.preventDefault();
-        axios.get(`http://api.themoviedb.org/3/discover/movie?&primary_release_date.gte=2018-05-11&primary_release_date.lte=2018-05-31&api_key=${this.state.api}&page=1`)
-      //  .then((result) => console.log(result))
+    componentDidMount() {
+      this.onSoon();
+    }
+    
+    onSoon = () => {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const day = date.getDate();
+
+        const from = `${year}-${month}-${day}`;
+        const to = `${year}-${month+2}-${day}`
+        axios.get(`http://api.themoviedb.org/3/discover/movie?&primary_release_date.gte=${from}&primary_release_date.lte=${to}&api_key=${this.state.api}&page=1`)
         .then((result) => this.setState({
         movies: [],
         popular: [],
@@ -28,7 +37,7 @@ import axios from 'axios'
       let soon = this.state.inTheatres;
     return (
       <div className="soon">
-        <button type="submit" onClick={this.onSoon}>  Soon </button>
+        <p className="header">  SOON </p>
         { 
            soon.map( (soon) => 
             <div className="movie-box">

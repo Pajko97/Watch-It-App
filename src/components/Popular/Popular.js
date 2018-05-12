@@ -12,7 +12,9 @@ class Popular extends Component {
     api: '1ca88eaa9f43c3fe6943dba43a383cd7'
 
    }
-
+   componentDidMount() {
+     this.onRated();
+   }
    onRated = () => {
     
     axios.get(`http://api.themoviedb.org/3/discover/movie?&sort_by=vote_average.desc&api_key=${this.state.api}&page=1`)
@@ -31,8 +33,8 @@ class Popular extends Component {
   render() {
     let populars = this.state.popular;
     return (
-      <div className="popular" onLoad={this.onRated}>
-      <button type="submit" onClick={this.onRated}>Popular</button>
+      <div className="popular">
+      <p className="header">POPULAR</p>
         { 
            populars.map( (popular) => 
             <div className="movie-box">
