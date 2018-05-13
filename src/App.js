@@ -48,7 +48,6 @@ class App extends Component {
           onChange={this.onChange}
         />
         <div className="search">
-
         {  
            movies.map( movie => 
             <div className="movie-box-search">

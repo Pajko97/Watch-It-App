@@ -16,7 +16,7 @@
   font-family:Roboto light, 'sans-serif';
   margin:0;
   padding:0;
-  background-color:var(--color1);
+  background-color:green;;
   flex-wrap:wrap;
 }
 
@@ -103,7 +103,7 @@
 .movie-box-search{
   display:flex;
   flex-direction:row;
-  margin:3%;
+  margin:8% 2% auto 2%;
   width:700px;
   height:500px;
   background-color: var(--color4);
@@ -115,9 +115,14 @@
 
 }
 
-.search {
+ .search {
   display:flex;
-  flex-wrap: wrap;
+  overflow:scroll;
+} 
+
+.search::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
 }
 
 .search-input input {
@@ -130,6 +135,16 @@
 }
 .search-input input:hover {
   width: 200px;
+}
+.search .header {
+  word-wrap: break-word;
+  width: 20px;
+  padding:5px 10px;
+  margin:auto 2% 10% 2%;
+  font-size:2rem;
+  color:gainsboro;
+  background-color: red;
+  border-radius:10px;
 }
                             /* Soon */
 .soon {
