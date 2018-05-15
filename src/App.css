@@ -15,7 +15,7 @@
       box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
  }
  .search, .popular, .soon {
-   padding-top:80px !important;
+   padding-top:50px !important;
    padding-left:20px;
  }
   .popular .movie-box-image , .soon .movie-box-image , .movie-box-search .movie-box-image {
@@ -25,6 +25,9 @@
   .popular .header ,.soon .header {
     margin-top:10% !important;
     align-self: center;
+  }
+  .popular {
+    padding-top:5%;
   }
 
   .movie-box .description, .movie-box-search .description {
@@ -38,12 +41,13 @@
     height:300px;
   }
 }
+                              /* Styles */
 :root {
-  --color1:#333333;
-  --color2:#48E5C2;
-  --color3:#FCFAF9;
-  --color4:#F3D3BD;
-  --color5:#5E5E5E;
+  --color1:#1F363D;
+  --color2:#70798C;
+  --color3:#C1CFDA;
+  --color4:#005E7C;
+  --color5:#003249;
 }
 .html {
   margin:0;
@@ -56,13 +60,14 @@
   font-family:Roboto light, 'sans-serif';
   margin:0;
   padding:0;
-  background-color:green;;
+  background-color:var(--color2);
   flex-wrap:wrap;
 }
 
 .Navbar {
-  background-color: #FF5733;
+  background-color: var(--color1);
   position: fixed;
+  color: var(--color3);
 }
 
 .movie {
@@ -82,7 +87,7 @@
   height:600px;
   width:98.9vw;
   overflow: scroll;
-  background-color:orange;
+  background-color: var(--color4);
   margin:0;
   margin-top:4%;
   
@@ -120,7 +125,7 @@
    margin:2%;
    width:700px;
    height:500px;
-   background-color: var(--color4);
+   background-color: var(--color3);
    justify-content: center;
    animation: fadeIn 2s ease;
     -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
@@ -137,7 +142,7 @@
   border-radius:50%;
   padding:10px;
   background-color: #273e63;
-  color: var(--color4);
+  color: var(--color3);
 }
                      /*Search*/
 .movie-box-search{
@@ -146,7 +151,7 @@
   margin:8% 2% auto 2%;
   width:700px;
   height:500px;
-  background-color: var(--color4);
+  background-color: var(--color3);
   justify-content: center;
   animation: fadeIn 2s ease;
    -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
@@ -166,16 +171,13 @@
 }
 
 .search-input input {
-  padding:5px;
+  padding:10px;
   border-radius:10px;
   border:none;
   outline: none;
-  width:25%;
-  transition: width 1s;
+  width:100%;
 }
-.search-input input:hover {
-  width: 180px;
-}
+
 .search .header {
   word-wrap: break-word;
   width: 19px;
@@ -192,7 +194,7 @@
   height:600px;
   width:98.9vw;
   overflow: scroll;
-  background-color:red;
+  background-color:var(--color5)
 
 }
 
