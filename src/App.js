@@ -51,7 +51,7 @@ class App extends Component {
         {  
            movies.map( movie => 
             <div className="movie-box-search">
-            <img src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} alt="dog"/>
+            <img className="movie-box-image" src={"https://image.tmdb.org/t/p/w300" + movie.poster_path} alt="dog"/> 
               <div className="description">
                 <h2>{movie.original_title}</h2>
                 <p className="overview-search">{movie.overview}</p>
