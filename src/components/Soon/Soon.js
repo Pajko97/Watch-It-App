@@ -23,8 +23,8 @@ import axios from 'axios'
         const month = date.getMonth();
         const day = date.getDate();
 
-        const from = `${year}-${month}-${day}`;
-        const to = `${year}-${month+2}-${day}`
+        const from = `${year}-${month+1}-${day}`;
+        const to = `${year}-${month+2}-${day}`;
         axios.get(`http://api.themoviedb.org/3/discover/movie?&primary_release_date.gte=${from}&primary_release_date.lte=${to}&api_key=${this.state.api}&page=1`)
         .then((result) => this.setState({
         movies: [],

@@ -16,6 +16,9 @@ class Navbar extends Component {
             <input type="text" name="search" placeholder="Search"/>
             </form>      
         </div>
+        <div className="message">
+            <h2>Find movies you love!</h2>
+        </div>
       </div>
     )
   }
