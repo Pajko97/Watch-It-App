@@ -92,7 +92,7 @@
   overflow: scroll;
   background-color: var(--color4);
   margin:0;
-  margin-top:4%;
+  margin-top:6.5%;
   
 }
 .popular::-webkit-scrollbar {
@@ -103,8 +103,9 @@
   word-wrap: break-word;
   width: 20px;
   padding:5px 10px;
-  margin:auto 2% 10% 2%;
+  margin:auto 2% auto 2%;
   font-size:2rem;
+  align-self:center !important;
   color:gainsboro;
   background-color: red;
   border-radius:10px;
@@ -125,9 +126,10 @@
 .movie-box {
    display:flex;
    flex-direction:row;
-   margin:2%;
+   margin:0 2%;
    width:700px;
    height:500px;
+   align-self:center;
    background-color: var(--color3);
    justify-content: center;
    animation: fadeIn 2s ease;
@@ -151,9 +153,10 @@
 .movie-box-search{
   display:flex;
   flex-direction:row;
-  margin:8% 2% auto 2%;
+  margin:10% 2% auto 2%;
   width:700px;
   height:500px;
+  align-self:center;
   background-color: var(--color3);
   justify-content: center;
   animation: fadeIn 2s ease;
@@ -165,7 +168,8 @@
 
  .search {
   display:flex;
-  overflow:scroll;
+  overflow: scroll;
+  height: 700px;
 } 
 
 .search::-webkit-scrollbar {
@@ -205,7 +209,8 @@
   word-wrap: break-word;
   width: 20px;
   padding:5px 10px;
-  margin:auto 2% 12% 2%;
+  margin:auto 2% auto 2%;
+  align-self: center ;
   font-size:2rem;
   color:gainsboro;
   background-color: orange;
