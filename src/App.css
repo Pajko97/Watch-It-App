@@ -169,7 +169,6 @@
  .search {
   display:flex;
   overflow: scroll;
-  height: 700px;
 } 
 
 .search::-webkit-scrollbar {
