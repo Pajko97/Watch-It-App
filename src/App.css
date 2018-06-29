@@ -1,5 +1,10 @@
                        /* Smaller screens */
 @media screen and (max-width: 900px) {
+  .App {
+    width:100vw;
+    height: 100vh;
+
+  }
   .movie-box , .movie-box-search{
     display:flex;
     padding:2%;
@@ -12,27 +17,54 @@
     animation: fadeIn 2s ease;
      -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
      -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-      box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+      box-shadow: 10px 9px 30px 0px rgba(0,0,0,0.75);
  }
+  .Navbar h2 {
+    display: none;
+  }
+  .Navbar h1 {
+    margin-top:5%;
+    font-size:1.5rem;
+  }
+  .Navbar {
+    width:100vw;
+    height:10vh;
+  }
+  
+  .popular, .soon {
+    width:100vw !important;
+    margin:0 !important;
+    padding:0 !important;
+
+
+  }
+  .popular .movie-box, .soon .movie-box {
+    height:80%;
+    flex-direction: column;
+  }
  .search, .popular, .soon {
    padding-top:50px !important;
    padding-left:20px;
  }
+
   .popular .movie-box-image , .soon .movie-box-image , .movie-box-search .movie-box-image {
-    width:300px;
-    height:500px;
+    width:200px;
+    height:200px;
   }
+
   .popular .header ,.soon .header {
-    margin-top:10% !important;
+    margin-top:0 !important;
     align-self: center;
   }
+  
   .popular {
     padding-top:5%;
   }
 
   .movie-box .description, .movie-box-search .description {
-    display:none;
-  }
+    width:200px;
+
+ }
   .overview-search {
     max-height:270px;
     overflow: hidden;
@@ -68,6 +100,7 @@
   background-color: var(--color1);
   position: fixed;
   color: var(--color3);
+  height:10vh;
 }
 
 .movie {
@@ -95,15 +128,21 @@
   margin-top:6.5%;
   
 }
-.popular::-webkit-scrollbar {
+.popular::-webkit-scrollbar, {
   width: 0px;  /* remove scrollbar space */
-  background: transparent;  /* optional: just make scrollbar invisible */
+  background:white;  /* optional: just make scrollbar invisible */
 }
+.popular::-webkit-scrollbar-thumb {
+  background-color:red !important;
+}
+
+
 .popular .header {
   word-wrap: break-word;
   width: 20px;
   padding:5px 10px;
-  margin:auto 2% auto 2%;
+  margin-left:2%;
+  margin-right: 4%;
   font-size:2rem;
   align-self:center !important;
   color:gainsboro;
@@ -208,8 +247,9 @@
   word-wrap: break-word;
   width: 20px;
   padding:5px 10px;
-  margin:auto 2% auto 2%;
-  align-self: center ;
+  align-self: center;
+  margin-right:3%;
+  margin-left: 2%;
   font-size:2rem;
   color:gainsboro;
   background-color: orange;
