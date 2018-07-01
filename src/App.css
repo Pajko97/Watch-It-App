@@ -92,7 +92,7 @@
   font-family:Roboto light, 'sans-serif';
   margin:0;
   padding:0;
-  background-color:var(--color2);
+  background-color:var(--color5);
   flex-wrap:wrap;
 }
 
@@ -121,15 +121,20 @@
   margin:0 25%;
   font-size:1rem;
 }
+
+ /* Maybe the same */
+
+
             /* Popular */
 .popular {
   display:flex;
   height:600px;
   width:98.9vw;
   overflow: scroll;
-  background-color: var(--color4);
+  background-color: var(--color5);
   margin:0;
   margin-top:6.5%;
+  border: 1px solid white;
   
 }
 .popular::-webkit-scrollbar, {
@@ -214,11 +219,13 @@
   overflow: scroll;
 } 
 
-.search::-webkit-scrollbar {
+.search::-webkit-scrollbar, .popular::-webkit-scrollbar {
   width: 0px;  /* remove scrollbar space */
   background: transparent;  /* optional: just make scrollbar invisible */
 }
-
+.search::-webkit-scrollbar-thumb, .popular::-webkit-scrollbar-thumb, .soon::-webkit-scrollbar-thumb {
+  background-color:red;
+}
 .search-input input {
   padding:10px;
   border-radius:9px;
@@ -244,7 +251,8 @@
   height:600px;
   width:98.9vw;
   overflow: scroll;
-  background-color:var(--color5)
+  background-color:var(--color5);
+  border: 1px solid white;
 
 }
 
