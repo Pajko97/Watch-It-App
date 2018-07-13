@@ -17,7 +17,7 @@ class Popular extends Component {
    }
    onRated = () => {
     
-    axios.get(`https://api.themoviedb.org/3/discover/movie?&sort_by=vote_average.desc&api_key=${this.state.api}&page=1`)
+    axios.get(`//api.themoviedb.org/3/discover/movie?&sort_by=vote_average.desc&api_key=${this.state.api}&page=1`)
     .then((result) => this.setState({
       movies: [],
       popular: result.data.results
