@@ -134,7 +134,6 @@
   background-color: var(--color5);
   margin:0;
   margin-top:6.5%;
-  border: 1px solid white;
   
 }
 .popular::-webkit-scrollbar, {
@@ -252,8 +251,6 @@
   width:98.9vw;
   overflow: scroll;
   background-color:var(--color5);
-  border: 1px solid white;
-
 }
 
 .soon .header {
